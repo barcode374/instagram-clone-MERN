@@ -1,5 +1,3 @@
-# Getting Started with Create React App
-
-An Intagaram Clone using MERN
-it is currently under development
+# An Intagaram Clone using MERN
+it is currently under development.
 
