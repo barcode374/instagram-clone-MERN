@@ -30,24 +30,7 @@ export default function Feed() {
        userDP={testimage}
        name="barcode"></Post>
 
-<Post postComments={
-         [
-       {
-       name:'hizqeel',
-       comment:'this is shit'
-        
-       },
-       {
-        name:'javed',
-        comment:'this is not shit'
-         
-      }
-    ]
-       } 
-       image={testimage}
-       userName="barcode"
-       userDP={testimage}
-       name="barcode"></Post>
+
 
         </div>
         
