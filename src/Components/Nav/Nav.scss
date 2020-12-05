@@ -1,0 +1,32 @@
+.myNav{
+    background-color: rgb(24, 24, 24);
+    padding:2px 300px;
+    margin:0 0 20px 0;
+   
+    a{
+        color: white !important;
+        padding:0px;
+        margin:0px;
+    }
+    input{
+        background-color: rgba(0,0,0,0);
+        border-width: 0px !important;
+        width: 100%;
+        color:white;
+        text-align: center;
+        padding: 10px 5px;
+    }
+
+    input:focus{
+        background-color: rgba(0,0,0,0);
+        box-shadow: none;
+        border:none;
+        outline-width:0px !important;
+    }
+    .icons a{
+        margin:0px 5px;
+       
+        
+    }
+   
+}
