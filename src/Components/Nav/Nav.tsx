@@ -2,8 +2,23 @@ import React from 'react';
 import './Nav.scss';
 import { CgHome } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 import { AiTwotoneUpCircle } from "react-icons/ai";
-export default function Nav() {
+import { HiOutlineHome } from 'react-icons/hi';
+
+import { HiHome } from 'react-icons/hi';
+
+import { Link } from 'react-router-dom';
+interface Props{
+    home:boolean,
+    likes:boolean,
+    profile:boolean
+}
+
+export default function Nav(props:Props) {
+   let linkClickedColor = "white";
+   let notLinkClickedColor = "gray"
+   const { home,likes,profile } = props;
     return (
         <div>
             <nav className="navbar navbar-light myNav d-flex justify-content-between">
@@ -14,9 +29,9 @@ export default function Nav() {
       
     </form>
     <div className="icons">
-        <a className="navbar-brand" href="#"><CgHome /></a>
-        <a className="navbar-brand" href="#"><AiOutlineHeart /></a>
-        <a className="navbar-brand" href="#"><AiTwotoneUpCircle /></a>
+    <Link className="links" to="/">{home?<HiHome style={home?{color:linkClickedColor}:{ color:notLinkClickedColor }} />:<HiOutlineHome style={home?{color:linkClickedColor}:{ color:notLinkClickedColor }} />}</Link>
+    <Link className="links" to="/likes">{likes?<AiFillHeart style={likes?{color:linkClickedColor}:{ color:notLinkClickedColor }} />:<AiOutlineHeart style={likes?{color:linkClickedColor}:{ color:notLinkClickedColor }} />}</Link>
+        <Link className="links" to ="/profile"><AiTwotoneUpCircle style={profile?{color:linkClickedColor}:{ color:notLinkClickedColor }} /></Link>
     </div>
 </nav>
         </div>

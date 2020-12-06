@@ -28,7 +28,7 @@ export default function Feed() {
        image={testimage}
        userName="hizqeel.nef"
        userDP={testimage}
-       name="barcode"></Post>
+       ></Post>
 
 
 

@@ -1,0 +1,26 @@
+.main{
+  margin: auto;
+}
+.profilepic{
+    img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+
+    }
+    margin-right: 50px;;
+ }
+ .userDetails{
+    margin-right: 50px;
+    .username{
+        font-size: 30px;
+        font-weight: 10;
+    }
+    .info{
+       
+      span{  
+         margin-right: 20px;
+        
+      }
+    }
+ }

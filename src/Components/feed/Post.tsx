@@ -3,10 +3,20 @@ import testpost from './testpost.jpg';
 import { AiFillHeart } from 'react-icons/ai';
 import {Spring, config} from 'react-spring/renderprops';
 import Comment from './Comment';
-export default function Post(props:any) {
+interface Props{
+  userName:string;
+  postComments:Array<Object>;
+  userDP:string;
+  image:string
+}
+export default function Post(props:Props) {
+  const { postComments,userDP,userName,image } = props;
+  console.log(typeof(image));
+  console.log(typeof(postComments));
   const [liked,setLike] = useState(0);
   const [scale,setScale] = useState(0);
-  const [comments,setComments] = useState(props.postComments);
+  const [comments,setComments] = useState(postComments);
+ 
   let like = () =>{
      liked==1?setLike(0):setLike(1);
      
@@ -23,11 +33,12 @@ if(e.which == 13){
  }
 }
 }
+
     return (
         <div className="Post d-flex flex-column bd-highlight">
     
-            <div className="username p-2 bd-highlight"><img src={props.userDP}></img>{props.userName}</div>
-  <div className="image p-2 bd-highlight"><img onDoubleClick={like} src={props.image}></img></div>
+            <div className="username p-2 bd-highlight"><img src={userDP}></img>{userName}</div>
+  <div className="image p-2 bd-highlight"><img onDoubleClick={like} src={image}></img></div>
   <div className="comments p-2 bd-highlight d-flex flex-column bd-highlight mb-3">
     <div className="d-flex bd-highlight">
       <Spring
