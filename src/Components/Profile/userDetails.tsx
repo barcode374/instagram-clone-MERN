@@ -2,6 +2,7 @@ import { profile } from 'console'
 import React from 'react'
 import './profile.scss';
 import image from '../feed/testpost.jpg';
+import PhotoGrid from './photoGrid';
 interface Props {}
 
 function UserDetails(props: Props) {
@@ -9,6 +10,7 @@ function UserDetails(props: Props) {
 
     return (
         <div className="d-flex justify-content-center">
+            <div className="d-flex flex-column">
         <div className="main flex-row bd-highlight mb-3 d-flex ">
             <div className="profilepic p-2 bd-highligh">
                 <img src={image} alt=""/>
@@ -20,6 +22,11 @@ function UserDetails(props: Props) {
 </div>
   <div className="p-2 bd-highlight"><b>حزقیل جاوید</b></div>
             </div>
+        </div>
+
+
+        <PhotoGrid />
+       
         </div>
         </div>
     )

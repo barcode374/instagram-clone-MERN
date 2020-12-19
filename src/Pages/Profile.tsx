@@ -11,6 +11,7 @@ function Profile(props: Props) {
         <div>
         <Nav home={false} likes={false} profile={true} />
         <UserDetails />
+        
         </div>
     )
 }

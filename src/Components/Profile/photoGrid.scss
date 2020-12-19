@@ -1,0 +1,50 @@
+.row{
+ 
+}
+.container{
+    margin-top: 50px;
+}
+.col{
+    margin-top: 20px;
+}
+.gridImage { 
+    img{
+        width:293px;
+        height: 293px;
+        &:hover{
+            transition-duration: 0.3s;
+            border-radius: 10px;
+        }
+    }
+  
+  }
+  @media only screen and (max-width: 1200px){
+   .gridImage{
+       img{
+           width: 250px;
+           height: 250px;
+       }
+   }
+  }
+  @media only screen and (max-width: 990px){
+    .gridImage{
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    }
+   }
+   @media only screen and (max-width: 790px){
+    .gridImage{
+        width: 100%;
+        img{
+            width: 100%;
+           
+        }
+    }
+   }
+// img:after {
+//     content: "";
+//     display: block;
+//     padding-bottom: 0%;
+//   }
