@@ -1,10 +1,10 @@
-import SignUp from '../Components/Authentication/signUp';
-import React from 'react'
+import SignUp from "../Components/Authentication/signUp";
+import React from "react";
 
 export default function Register() {
-    return (
-        <div>
-            <SignUp />
-        </div>
-    )
+  return (
+    <div>
+      <SignUp />
+    </div>
+  );
 }
