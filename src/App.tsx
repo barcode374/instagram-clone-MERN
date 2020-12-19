@@ -6,6 +6,8 @@ import './main.scss'
 import Nav from './Components/Nav/Nav';
 import Feed from './Components/feed/Feed';
 import Home from './Pages/Home';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Profile from './Pages/Profile';
 
@@ -24,7 +26,12 @@ function App() {
     <Route path="/profile">
       <Profile />
     </Route>
-   
+    <Route path="/register">
+      <Register />
+    </Route>
+    <Route path="/login">
+      <Login />
+    </Route>
   </Switch>
   </Router>
   );
