@@ -2,6 +2,7 @@
 frontEnd/.eslintcache
 # dependencies
 frontEnd/node_modules
+backEnd/node_modules
 frontEnd/.pnp
 frontEnd/.pnp.js
 
