@@ -9,9 +9,16 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Profile from "./Pages/Profile";
+import { ApolloProvider } from "@apollo/client";
+import client from "./GQLclient/client";
+
+
+
+
 
 function App() {
   return (
+    <ApolloProvider client={client}>
     <Router>
       <Switch>
         <Route exact path="/">
@@ -33,6 +40,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    </ApolloProvider>
   );
 }
 
