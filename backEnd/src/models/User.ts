@@ -1,15 +1,18 @@
 import mongoose, {Schema, Document} from "mongoose";
+import { myPost, postSchema } from "./Post";
 
 export interface myUser extends Document {
-    firstName: string;
-    lastName: string;
-    password: string;
+    name:string,
+    username:string,
+    password: string,
+    posts:[myPost]
 }
 
 const userSchema:Schema = new Schema({
-    firstName:{type:String},
-    lastName:{type:String},
-    password:{type:String}
+    name:String,
+    username:String,
+    password:String,
+    posts:[postSchema]
 })
 
 export const User = mongoose.model<myUser>("User",userSchema);

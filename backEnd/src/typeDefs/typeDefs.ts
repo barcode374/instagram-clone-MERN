@@ -1,6 +1,7 @@
 import { gql } from "apollo-server-express";
 
  export const typeDefs = gql`
+#  scalar Uploaded
   type Query {
     hello: String!
     cats: [Cat!]!
@@ -14,13 +15,19 @@ import { gql } from "apollo-server-express";
   }
   type User {
     id: ID!
-    firstName: String!
-    lastName: String!
+    name: String!
+    username: String!
     password: String!
+
+  }
+  type Post {
+    id: ID!
+    username:String!
+    image:Upload!
+    title:String
   }
   type Mutation {
-    createCat(name: String!): Cat!
-    createUser(firstName:String!,lastName:String!,password:String!):User!
-    
+    createUser(name:String!,username:String!,password:String!):User!
+    createPost(username:String!,image:Upload!,title:String):Post!
   }
 `;

@@ -17,7 +17,8 @@ const startServer = async () => {
   server.applyMiddleware( {app} );
 
   await mongoose.connect("mongodb://localhost:27017/instaClone-DB", {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology:true
   });
 
   app.listen({ port: 5000 }, () =>
