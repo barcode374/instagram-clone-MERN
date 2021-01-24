@@ -2,17 +2,13 @@ import { gql } from "apollo-server-express";
 
  export const typeDefs = gql`
 #  scalar Uploaded
-  type Query {
-    hello: String!
-    cats: [Cat!]!
-    findCat(name:String!): Cat
-    findOneUser(_id:String!):User!
+type File {
+    filename:String!
+    mimetype:String!
+    encoding:String!
   }
+  
 
-  type Cat {
-    id: ID!
-    name: String!
-  }
   type User {
     id: ID!
     name: String!
@@ -26,8 +22,22 @@ import { gql } from "apollo-server-express";
     image:Upload!
     title:String
   }
+  type AuthenticationToken {
+    username:String!
+    token: String!
+  }
+  type Query {
+
+   
+
+    authenticateUser(username:String!,password:String!):Boolean!
+    findOneUser(username:String!):User
+    files: [File!]
+  }
+
   type Mutation {
     createUser(name:String!,username:String!,password:String!):User!
     createPost(username:String!,image:Upload!,title:String):Post!
+    uploadFile(file: Upload!):File!
   }
 `;

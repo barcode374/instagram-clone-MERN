@@ -1,18 +1,34 @@
 import { ApolloServer, gql } from "apollo-server-express";
-import express from "express";
+import express, { request } from "express";
 import { Server } from "http";
 import mongoose from "mongoose";
 import { resolvers } from "./resolver/resolvers";
 import { typeDefs } from "./typeDefs/typeDefs";
+import { graphqlUploadExpress } from "graphql-upload";
+// var cookieParser = require('cookie-parser')
+import cookieParser from "cookie-parser";
+
+
 
 
 const startServer = async () => {
   const app:express.Application = express();
 
+  app.use(cookieParser())
+  
+  
   const server = new ApolloServer({
+    
     typeDefs,
-    resolvers
+    resolvers,
+    context:({req,res})=>({req,res}),
+    
+    
+    
   });
+ 
+
+
 
   server.applyMiddleware( {app} );
 

@@ -1,3 +1,5 @@
+backEnd/src/private/key.ts
+backEnd/images
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 frontEnd/.eslintcache
 # dependencies
