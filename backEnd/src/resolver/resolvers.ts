@@ -35,7 +35,6 @@ export const resolvers = {
      let token = req.cookies.authCookie;
      
       let userData:any = await JWT.verify(token,KEY);
-      console.log(userData);
      if(userData.username === args.username){
       return User.findOne({username:args.username})
      } 
