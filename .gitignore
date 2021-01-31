@@ -1,5 +1,6 @@
-backEnd/src/private/key.ts
+backEnd/src/private/
 backEnd/images
+backEnd/deploy.zip
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 frontEnd/.eslintcache
 # dependencies
@@ -24,3 +25,6 @@ frontEnd/.eslintcache
 frontEnd/npm-debug.log*
 frontEnd/yarn-debug.log*
 frontEnd/yarn-error.log*
+
+#failed
+serverless-backend

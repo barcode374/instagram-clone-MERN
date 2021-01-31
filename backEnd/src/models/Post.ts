@@ -2,7 +2,7 @@ import mongoose, {Schema, Document} from "mongoose";
 import { myComment, commentSchema} from './Comment';
 export interface myPost extends Document {
     username: string;
-    image: Buffer;
+    image: String;
     comments: [myComment];
 }
 

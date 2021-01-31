@@ -4,20 +4,11 @@ import { myUser, User } from "../models/User";
 import {myFile, File} from "../models/File";
 import {createWriteStream, mkdir} from "fs";
 import * as JWT from "jsonwebtoken";
-import {KEY} from "../private/key";
+import {BUCKET_NAME, KEY} from "../private/key";
+import {myS3} from "../private/AWS_S3";
 import { request, response } from "express";
-const storeUpload = async ({ stream, filename, mimetype }:any) => {
-  const id = "69";
-  console.log(filename);
-  const path = `images/${filename}`;
-  // (createWriteStream) writes our file to the images directory
-  return new Promise((resolve, reject) =>
-    stream
-      .pipe(createWriteStream(path))
-      .on("finish", () => resolve({ path, filename, mimetype }))
-      .on("error", reject)
-  );
-};
+import aws from "aws-sdk";
+
 
 // const processUpload = async (fileUp: any) => {
 //   console.log(fileUp);
@@ -32,19 +23,27 @@ const storeUpload = async ({ stream, filename, mimetype }:any) => {
 export const resolvers = {
   Query: {
     findOneUser: async (_:any,args:any,{req,res}:any) => {
-     let token = req.cookies.authCookie;
+      try {
+        let token = req.cookies.authCookie;
      
-      let userData:any = await JWT.verify(token,KEY);
-     if(userData.username === args.username){
-      return User.findOne({username:args.username})
-     } 
-     else {
-       return null;
-     }
+        let userData:any = await JWT.verify(token,KEY);
+        if(userData.username === args.username){
+          return User.findOne({username:args.username})
+         } 
+      }catch{
+        return null
+      }
+    //  let token = req.cookies.authCookie;
+     
+      // let userData:any = await JWT.verify(token,KEY);
+    
+    //  else {
+      //  return null;
+    //  }
     },
     authenticateUser: async (_:any,args:any, {res}:any) => {
       
-    return User.findOne ({username:args.username,password:args.password}).then(async(user:myUser) =>{
+    return User.findOne ({username:args.username,password:args.password}).then(async (user:any) =>{
       if(user === null){
        return false;
       }
@@ -84,16 +83,26 @@ export const resolvers = {
     },
     uploadFile: async (_:any, {file}:any) => {
       
-        console.log(file);
+        // console.log(file);
       const { createReadStream, filename, mimetype, encoding } = await file;
       // mkdir("images", { recursive: true }, (err) => {
       //   if (err) throw err;
       // });
-      let stream = await createReadStream();
+      let stream =await createReadStream();
+      console.log(stream._writeSteam);
+ const uri = await myS3.upload({
+      Body:stream,
+      Bucket:BUCKET_NAME,
+      Key:Math.random()+'-'+filename,
+      ContentType:mimetype,
+      
+    }).promise();
+    console.log(uri.Location);
+      // let stream = await createReadStream();
       // // Process upload
-      const f = await storeUpload({ stream, filename, mimetype });
+      // const f = await storeUpload({ stream, filename, mimetype });
       // const upload = await processUpload(file);
-       return file;
+       return {filename, mimetype, encoding, uri:uri.Location};
     },
   }
 };

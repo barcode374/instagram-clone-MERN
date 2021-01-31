@@ -6,6 +6,7 @@ type File {
     filename:String!
     mimetype:String!
     encoding:String!
+    uri: String!
   }
   
 
@@ -19,7 +20,7 @@ type File {
   type Post {
     id: ID!
     username:String!
-    image:Upload!
+    image:String!
     title:String
   }
   type AuthenticationToken {
