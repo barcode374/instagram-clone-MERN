@@ -12,7 +12,7 @@ export default function Feed() {
   return (
     <div className="d-flex align-items justify-content-center bd-highlight">
   {/* <UploadFile></UploadFile> */}
-  <SelectPost></SelectPost>
+  <SelectPost call={true}></SelectPost>
       {/* <div className="one p-2 flex-fill justify-content-start bd-highlight"></div> */}
       <div className="one p-2 align-items justify-content-center bd-highlight">
 <Post
