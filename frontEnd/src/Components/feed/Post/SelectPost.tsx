@@ -8,7 +8,8 @@ import FileBase64 from 'react-file-base64';
 import getCroppedImg from './cropImage'
 // imageToBase64 = require('image-to-base64');
 import imageToBase64 from 'image-to-base64';
-  
+import { BiCrop } from 'react-icons/bi';
+
     // As Base64 string
     // return canvas.toDataURL('image/jpeg');
   
@@ -96,21 +97,21 @@ export default function SelectPost(props:any) {
           </div>)
     } else
     return (
-      <div>
+      <div >
       <div className="box" style={croppedImage === undefined ? { display:'none'}:{display:''}}>
             <img height="600px" width="600px" src={croppedImage} style={croppedImage === undefined ? { display: 'none' } : {}} ></img>
             <button className="btn btn-link " onClick={handleFile} >Edit Crop</button>
-            </div>
+       </div>
 
       <div className="crop" style={showBox ? { display: ''}:{display:'none'}}>
             {/* <input type="file" required onChange={onChange} /> */}
             <div style={{
    
-  //   margin: " auto",
-  // position: "absolute",
-  // top: 0, left: 0, bottom: 0, right: 0,
-  // height:"600px",
-  //         width: "600px",
+    margin: " auto",
+  position: "absolute",
+  top: 0, left: 0, bottom: 0, right: 0,
+  height:"600px",
+          width: "600px",
 
   //         backgroundColor: "rgba(0,0,0,0.2)"
     
@@ -118,24 +119,24 @@ export default function SelectPost(props:any) {
     
   }} onDoubleClick={showCroppedImage}>
             <Cropper
-          image={file}
-          crop={crop}
-          zoom={zoom}
-          aspect={1 / 1}
-          onCropChange={setCrop}
-          onCropComplete={onCropComplete}
-          onZoomChange={setZoom}
-          disableAutomaticStylesInjection={false}
-          
-          style={{cropAreaStyle:{overflow:"hidden",height:"600px"},containerStyle:{overflow:'hidden'}}}
-          
+              image={file}
+              crop={crop}
+              zoom={zoom}
+              aspect={1 / 1}
+              onCropChange={setCrop}
+              onCropComplete={onCropComplete}
+              onZoomChange={setZoom}
+              disableAutomaticStylesInjection={false}
+              
+              style={{cropAreaStyle:{overflow:"hidden",height:"600px"},containerStyle:{overflow:'hidden'}}}
+              
         />
           </div>
           <div className="buttonContainer">
-          <button id="cropButton" className="btn btn-link link" onClick={showCroppedImage} >Crop</button>
+          <button id="cropButton" className="btn btn-link link" onClick={showCroppedImage} >< BiCrop style={{fontSize:"25px"}} /></button>
         </div>
         </div>
-
+        
         </div>
     )
 }

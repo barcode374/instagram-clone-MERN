@@ -11,8 +11,10 @@ import SelectPost from "./Post/SelectPost";
 export default function Feed() {
   return (
     <div className="d-flex align-items justify-content-center bd-highlight">
-  {/* <UploadFile></UploadFile> */}
-  <SelectPost call={true}></SelectPost>
+      {/* <UploadFile></UploadFile> */}
+      <div style={{display:'none'}}>
+        <SelectPost></SelectPost>
+        </div>
       {/* <div className="one p-2 flex-fill justify-content-start bd-highlight"></div> */}
       <div className="one p-2 align-items justify-content-center bd-highlight">
 <Post
