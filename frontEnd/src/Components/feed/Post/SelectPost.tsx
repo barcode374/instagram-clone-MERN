@@ -50,6 +50,7 @@ export default function SelectPost(props:any) {
         }
       );
     } else {
+      setCroppedImage(undefined);
       setShowBox(true);
     }
    
@@ -105,11 +106,11 @@ export default function SelectPost(props:any) {
             {/* <input type="file" required onChange={onChange} /> */}
             <div style={{
    
-    margin: "auto",
-  position: "absolute",
-  top: 0, left: 0, bottom: 0, right: 0,
-  height:"600px",
-          width: "600px",
+  //   margin: " auto",
+  // position: "absolute",
+  // top: 0, left: 0, bottom: 0, right: 0,
+  // height:"600px",
+  //         width: "600px",
 
   //         backgroundColor: "rgba(0,0,0,0.2)"
     
@@ -130,11 +131,8 @@ export default function SelectPost(props:any) {
           
         />
           </div>
+          <div className="buttonContainer">
           <button id="cropButton" className="btn btn-link link" onClick={showCroppedImage} >Crop</button>
-
-<div>
-
-        
         </div>
         </div>
 

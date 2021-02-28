@@ -1,0 +1,13 @@
+{
+  "name": "instagram-backend-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "frontEnd-start":"cd frontEnd && yarn start",
+    "backEnd-start":"cd backEnd && yarn start",
+    "start":"concurrently \"cd frontEnd && yarn start\" \"cd backEnd && yarn start\""
+  },
+  "main": "frontEnd/index.js",
+  "repository": "https://github.com/barcode374/instagram-clone-MERN.git",
+  "author": "Hizqeel Javed <hizqeeljaved2013@gmail.com>",
+  "license": "MIT"
+}

@@ -28,3 +28,4 @@ frontEnd/yarn-error.log*
 
 #failed
 serverless-backend
+node_modules
