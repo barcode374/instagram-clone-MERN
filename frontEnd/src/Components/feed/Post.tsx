@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { AiFillHeart } from "react-icons/ai";
 import { Spring } from "react-spring/renderprops";
+import { dimContext } from "../../Contexts/dimContext";
 import Comment from "./Comment";
 interface Props {
   userName: string;
@@ -10,6 +11,8 @@ interface Props {
   image: string;
 }
 export default function Post(props: Props) {
+  let toDim = useContext(dimContext);
+  console.log(toDim);
   const { postComments, userDP, userName, image } = props;
   console.log(typeof image);
   console.log(typeof postComments);
@@ -37,7 +40,7 @@ export default function Post(props: Props) {
   };
 
   return (
-    <div className="Post d-flex flex-column bd-highlight">
+    <div className="Post d-flex flex-column bd-highlight" style={toDim['Dim']?{opacity:'0',pointerEvents: 'none'}:{opacity:'1'}}>
       <div className="username p-2 bd-highlight">
         <img alt="" src={userDP}></img>
         {userName}

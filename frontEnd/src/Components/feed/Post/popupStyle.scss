@@ -7,7 +7,7 @@
     // height: 100%;
     // background-color: black;
     // opacity: 0.5;
-    // background-color: rgba(0, 0, 0, 1);
+    // background-color: rgb(0, 0, 0);
     top: 0; left: 0; bottom: 0; right: 0;
     height: 600px;
     width: 600px;
@@ -16,6 +16,21 @@
     // img{
     //     opacity: 1;
     // }
+}
+.buttons{
+  button,input{
+    margin-top:10px;
+  }
+  input{
+    width: 70%;
+    background-color: black;
+    border: none;
+    line-height: -10px;
+  }
+  button{
+    width: 15%;
+  }
+  background-color: black;
 }
 .crop{
     margin: auto;
@@ -35,13 +50,19 @@
 }
 
 .link{
-    color:white
+    color:white;
+    transition: 0.1s;
 }
 .link:hover{
     text-decoration:none;
     color:rgb(155, 155, 155);
+    outline: none;
+  }
+.link:focus{
+  outline: none;
+  border-color: black;
+  box-shadow: none;
 }
-
 .buttonContainer{
   
   position: absolute;

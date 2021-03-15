@@ -21,7 +21,7 @@ console.log(e.target.files[0])
 // console.log(x.File);
 let myFile = await e.target.files[0];
 let status = await mutate({ variables:{file:myFile}});
-console.log(status);
+
   }
 
   if (loading) return <div>Loading...</div>;
